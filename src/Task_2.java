@@ -5,7 +5,7 @@ public class Task_2 {
         int rabbits=11, wolfs=2, eaten=0, i;
         Scanner in = new Scanner(System.in);
         int N = in.nextInt();
-        for (i = 1; i <= N; ++i) {
+        for (i = 1; i <= N; i++) {
             if (rabbits/wolfs<10)//-волк
                 wolfs-=wolfs*10/rabbits;
             if (i % 2 != 0){//зайцы*3
