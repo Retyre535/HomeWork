@@ -23,4 +23,4 @@ class MyArrays{
         if (f==0) return(-1.00);
         else return((double)d/f);
     }
-}//
+}
