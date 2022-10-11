@@ -8,14 +8,24 @@ public class Task3 {
         int[][] a = new int[n][n];
         int x=0, y=0;
         a[x][y]=c;
-        for (int j = n; j>1; j--) a[x][++y] = ++c;
-        for (int i=n-1;i>=0;i--) {
-            if (i % 2 == 1) {
+        if (n%2==1) for (int i=n;i>=0;i--) {
+            if (i==n) for (int j = n; j>1; j--) a[x][++y] = ++c;
+            else if (i % 2 == 1) {
                 for (int j = i; j > 0; j--) a[--x][y] = ++c;
                 for (int j = i; j > 0; j--) a[x][++y] = ++c;
             } else {
                 for (int j = i; j > 0; j--) a[++x][y] = ++c;
                 for (int j = i; j > 0; j--) a[x][--y] = ++c;
+            }
+        }
+        else for (int i=n;i>=0;i--) {
+            if (i==n) for (int j = n; j>1; j--) a[x][++y] = ++c;
+            else if (i % 2 == 1) {
+                for (int j = i; j > 0; j--) a[++x][y] = ++c;
+                for (int j = i; j > 0; j--) a[x][--y] = ++c;
+            } else {
+                for (int j = i; j > 0; j--) a[--x][y] = ++c;
+                for (int j = i; j > 0; j--) a[x][++y] = ++c;
             }
         }
         for (int i=0;i<n;i++) {
