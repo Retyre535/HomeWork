@@ -5,27 +5,46 @@ public class Task2 {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int d = 2*n+1;
-        int c = d*d-1;
+        int c = 0;
         int[][] a = new int[d][d];
-        int x=0, y=d-1;
-        for (int i=0;i<4*n;i++) {
-            while (x+2*i < d) {
-                a[x][y] = c--;
-                ++x;
+        int x=n, y=n;
+        a[x][y]=0;
+        for (int i=1;i<d;i++) {
+            if (i % 2 == 1) {
+                for (int j = 0; j < i; j++) {
+                    c++;
+                    x--;
+                    a[x][y] = c;
+                }
+                for (int j = 0; j < i; j++) {
+                    c++;
+                    y--;
+                    a[x][y] = c;
+                }
+            } else {
+                for (int j = 0; j < i; j++) {
+                    c++;
+                    x++;
+                    a[x][y] = c;
+                }
+                for (int j = 0; j < i; j++) {
+                    c++;
+                    y++;
+                    a[x][y] = c;
+                }
             }
-            while (y-2*i > 0) {
-                a[x][y-1] = c--;
-                --y;
+        }
+        for (int j = 0; j < d-1; j++) {
+            c++;
+            x--;
+            a[x][y] = c;
+        }
+        for (int i=0;i<d;i++) {
+            for (int j = 0; j < d; j++) {
+                if (a[i][j] < 10) System.out.print(" " + a[i][j] + "\t");
+                else System.out.print(a[i][j] + "\t");
             }
-            while (x-2*i > 0) {
-                a[x][y] = c--;
-                --x;
-            }
-            while (y+2*i < d) {
-                a[x][y] = c--;
-                ++y;
-            }
-            System.out.println("1");
+            System.out.println();
         }
     }
 }
